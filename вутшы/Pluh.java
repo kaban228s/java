@@ -1,3 +1,5 @@
+package вутшы;
+
 import java.util.Scanner;
 
 public class Pluh {
@@ -5,8 +7,8 @@ public class Pluh {
         Scanner scanner = new Scanner(System.in);
         System.out.println("сколько ты весишь ");
         int weight = scanner.nextInt();
-        if ( weight > 130){
-            System.out.println("Ты жирный Денис ");
+        if ( weight > 112){
+            System.out.println("Ты очень жирный Денис ");
         }else {
             System.out.println("Всё нормально ты не денис ");
         }

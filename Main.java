@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main{
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("введите размер матрицы: ");
+        System.out.println("Введите размерность матрицы: ");
         int size = input.nextInt();
         int[][] arr = new int[size][size];
         Random rand = new Random();
