@@ -22,11 +22,11 @@ public class IntLinkedList implements IntList {
         if (idx < 0 || idx >  size){
             throw new IndexOutOfBoundsException();
         }
-        Node needed = head;
+        Node current = head;
         for (int i = 0; i < idx; i++) {
-            needed = needed.next;
+            current = current.next;
         }
-        return needed.data;
+        return current.data;
     }
 
     @Override
