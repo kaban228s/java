@@ -1,7 +1,7 @@
 package ru.vsuet.list;
 
-public class Main {
-    public static void main(String[] args) {
+public class Main<T> {
+    public static void main (String[] args) {
         IntList list = new IntLinkedList();
 
         System.out.println("List size: " + list.size());

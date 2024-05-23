@@ -10,9 +10,8 @@ public class Matrix {
         matrix = new int[size][size];
         Random rand = new Random();
 
-
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 matrix[i][j] = rand.nextInt(9) + 1;
             }
         }
@@ -20,8 +19,8 @@ public class Matrix {
 
     public int sum() {
         int sum = 0;
-        for (int i = 0; i < 3; i++) {
-            for (int j = i + 1; j < 3; j++) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = i + 1; j < matrix.length; j++) {
                 sum += matrix[i][j];
             }
         }
@@ -30,7 +29,7 @@ public class Matrix {
 
     public int raznost() {
         int raznost = 0;
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < i; j++) {
                 raznost -= matrix[i][j];
             }
@@ -40,21 +39,23 @@ public class Matrix {
 
     public int mult() {
         int mult = 1;
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < matrix.length; i++) {
             mult *= matrix[i][i];
         }
         return mult;
     }
 
-    public String soutMatrix() {
+    @Override
+    public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("Матрица:\n");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                builder.append(matrix[i][j]).append(" ");
+        for (int[] ints : matrix) {
+            for (int j = 0; j < matrix.length; j++) {
+                builder.append(ints[j]).append(" ");
             }
             builder.append("\n");
 
-        }return builder.toString();
+        }
+        return builder.toString();
     }
 }
