@@ -1,13 +1,12 @@
 package ru.vsuet.Hash;
 
-
 import java.util.Random;
 import java.util.function.Consumer;
 
-public class Probe {
+public class FunctionProbe {
 
     public static String generateRandomString(int length) {
-        String characters = "qwertyuiopasdfghjklzxcvbnm";
+        String characters = "abcdefghijklmnopqrstuvwxyz";
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
 
@@ -27,7 +26,7 @@ public class Probe {
             this.key = key;
         }
 
-        public void grs(int len) {
+        public void rns(int len) {
             this.key = generateRandomString(len);
         }
 
@@ -43,7 +42,7 @@ public class Probe {
     }
 
     public static int CollisionCheck(Consumer<Key> rng, int count) {
-        HashTable<String> table = new HashTable<>(4196);
+        HashTable<String> table = new HashTable<>(128);
         Key key = new Key("`");
         int collision_count = 0;
         int latest_hash = 0;
@@ -60,10 +59,10 @@ public class Probe {
     }
 
     public static void main(String[] args) {
-        Consumer<Key> randomString_100 = key -> key.grs(100);
-        Consumer<Key> randomString_10 = key -> key.grs(10);
-        Consumer<Key> randomString_3 = key -> key.grs(3);
-        Consumer<Key> randomString_2 = key -> key.grs(2);
+        Consumer<Key> randomString_100 = key -> key.rns(100);
+        Consumer<Key> randomString_10 = key -> key.rns(10);
+        Consumer<Key> randomString_3 = key -> key.rns(3);
+        Consumer<Key> randomString_2 = key -> key.rns(2);
         Consumer<Key> randomInt= Key::rng;
         System.out.println("Кол-во коллизий (Строка 100 символов): " + CollisionCheck(randomString_100, 128));
         System.out.println("Кол-во коллизий (Строка 10 символов): " + CollisionCheck(randomString_10, 128));

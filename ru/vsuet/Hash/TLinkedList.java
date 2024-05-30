@@ -1,6 +1,6 @@
 package ru.vsuet.Hash;
 
-import java.util.function.Predicate;
+
 
 public class TLinkedList<T>  {
     private Node<T> head;

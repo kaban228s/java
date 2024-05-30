@@ -5,7 +5,7 @@ import java.util.function.BiConsumer;
 
 public class HashTable<T> {
 
-    public static class Node<T> {
+    private static class Node<T> {
         public String key;
         public T value;
 
@@ -19,7 +19,7 @@ public class HashTable<T> {
         int hash = 5381;
         byte[] ascii = key.getBytes(StandardCharsets.US_ASCII);
         for (byte bit : ascii) {
-            hash = 17 * hash + bit;
+            hash = 17 * hash * bit + bit;
         }
         return Math.abs(hash % table.length);
     }
